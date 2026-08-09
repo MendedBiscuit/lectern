@@ -83,8 +83,13 @@ Use the transcript for what the lecturer emphasised, called difficult, said was
 examinable, deferred to next lecture, or set as an exercise. That material is
 what makes a summary preferable to re-watching.
 
-Structure and LaTeX conventions: `references/writeup.md`. Preamble:
-`assets/lecture.tex`.
+Start the document from the template:
+
+```bash
+lectern template -o lec05/lec05.tex
+```
+
+Structure and LaTeX conventions: `references/writeup.md`.
 
 ## 5. Check coverage
 
@@ -104,8 +109,9 @@ reconstructing it.
 
 ## 6. Build and write back
 
-Build the document and check it: for LaTeX, zero overfull boxes and the expected
-page count. Then follow the project's note-keeping convention (`CLAUDE.md`, a
+Build the document and check it: `latexmk -pdf -outdir=build lecNN.tex` from
+inside the lecture's directory, then zero overfull boxes and the expected page
+count. Then follow the project's note-keeping convention (`CLAUDE.md`, a
 vault, a journal) so the summary is recorded somewhere other than a build
 directory.
 

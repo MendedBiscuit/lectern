@@ -38,6 +38,8 @@ usage: lectern <command> [args]
   crop FRAME WxH+X+Y          crop and upscale a board region (--zoom,
                               default 400)
 
+  template [-o out.tex]       write out the LaTeX preamble to summarise into
+
   clean FILE [-o out]         audio repair: downmix, high-pass, two-pass
                               loudnorm, true-peak limit. Video stream-copied.
 
@@ -68,6 +70,7 @@ case "$cmd" in
   clean)      need ffmpeg;  exec "$LIB/clean.sh" "$@" ;;
   frames)     need ffmpeg;  exec "$LIB/frames.sh" "$@" ;;
   crop)       need magick "ImageMagick 7"; exec "$LIB/crop.sh" "$@" ;;
+  template)   exec "$LIB/template.sh" "$@" ;;
   transcribe) need uv "https://docs.astral.sh/uv/"; exec uv run --script "$LIB/transcribe.py" "$@" ;;
   ramp)       need uv "https://docs.astral.sh/uv/"; exec uv run --script "$LIB/ramp.py" "$@" ;;
   doctor)
