@@ -1,0 +1,31 @@
+# scratch
+.lectern-ramp/
+work/
+frames/
+*.raw
+*.npy
+parts.txt
+
+# media — never commit a lecture
+*.mp4
+*.mkv
+*.mov
+*.webm
+*.mp3
+*.m4a
+*.wav
+*.ts
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+
+# latex
+build/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz

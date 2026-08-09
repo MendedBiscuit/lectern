@@ -1,0 +1,89 @@
+% lectern — lecture summary template.
+% Build with:  latexmk -pdf -outdir=build lecture.tex
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem{fact}{Fact}
+\newtheorem{conjecture}{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Shorthands. Delete what the subject does not use; add what it does.
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Img}{\operatorname{Im}}
+
+\title{SUBJECT NAME (CODE)\\[2pt]
+       \large Lecture N --- the one-line description of what this lecture did}
+\author{Lecturer}
+\date{Weekday D Month YYYY}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent Three or four sentences: where the lecture starts, what it builds, and
+where it ends up. Write this last. Name the loose end, if it leaves one.
+\end{abstract}
+
+\section{Recap}
+
+What was carried over, and why it was needed here.
+
+\section{First section}
+
+Follow the lecture's order, not a tidier one.
+
+\begin{definition}[Name]
+As stated in the lecture.
+\end{definition}
+
+\begin{theorem}[Name]
+The statement.
+\end{theorem}
+
+\begin{proof}
+The proof as given. If it was set as an exercise, say so and record the sketch
+the lecturer offered, since that is what the exercise expects.
+\end{proof}
+
+\paragraph{Aside.}
+The anecdote, the warning, the common mistake.
+
+\section*{To do}
+
+\begin{itemize}[nosep]
+  \item Exercises set in the lecture.
+  \item Anything deferred to next time.
+  \item Anything flagged and not answered.
+\end{itemize}
+
+\section*{Not recovered from the recording}
+
+\begin{itemize}[nosep]
+  \item What the camera lost (blown-out slides, board below frame).
+  \item Anything unreadable after cropping and enlarging.
+\end{itemize}
+
+\end{document}

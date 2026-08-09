@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+# lectern — command-line tools for turning a lecture recording into notes.
+#
+# Each subcommand wraps ffmpeg, ImageMagick or faster-whisper. Set
+# LECTERN_VERBOSE=1 to print the commands as they run.
+set -euo pipefail
+export LC_ALL=C          # see lib/common.sh — decimal separators
+
+# resolve this script's real directory, following symlinks (~/.local/bin/lectern -> repo)
+_src="${BASH_SOURCE[0]}"
+while [ -L "$_src" ]; do
+  _dir="$(cd -P "$(dirname "$_src")" && pwd)"
+  _src="$(readlink "$_src")"
+  [[ $_src != /* ]] && _src="$_dir/$_src"
+done
+LECTERN_ROOT="$(cd -P "$(dirname "$_src")/.." && pwd)"
+LIB="$LECTERN_ROOT/lib"
+export LECTERN_ROOT LIB
+
+usage() {
+  cat <<'EOF'
+lectern — lecture recording -> transcript, boards, summary
+
+usage: lectern <command> [args]
+
+  probe FILE                  levels, phase correlation and a recommended
+                              downmix. Run first: catches phase-inverted
+                              stereo, which cancels when downmixed to mono.
+
+  audio FILE [-o out.wav]     16 kHz mono for ASR, using the downmix probe
+                              recommends (--downmix to override)
+
+  transcribe WAV [-o txt]     faster-whisper -> timestamped transcript
+
+  frames FILE [-o dir]        sample frames for reading the board or slides
+                              (--every SECONDS, default 30)
+
+  crop FRAME WxH+X+Y          crop and upscale a board region (--zoom,
+                              default 400)
+
+  clean FILE [-o out]         audio repair: downmix, high-pass, two-pass
+                              loudnorm, true-peak limit. Video stream-copied.
+
+  ramp <sub> ...              speed ramp: faster through pauses, slower while
+                              the lecturer writes.
+                              subcommands: detect | plan | render | verify
+
+  doctor                      check ffmpeg / magick / uv are present
+
+Run `lectern <command> --help` for per-command options.
+Docs: skills/lecture-summary/SKILL.md and its references/.
+EOF
+}
+
+need() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "lectern: missing dependency '$1'${2:+ ($2)}" >&2
+    return 1
+  }
+}
+
+cmd="${1:-}"
+[ $# -gt 0 ] && shift || true
+
+case "$cmd" in
+  probe)      need ffprobe; need ffmpeg; exec "$LIB/probe.sh" "$@" ;;
+  audio)      need ffmpeg;  exec "$LIB/audio.sh" "$@" ;;
+  clean)      need ffmpeg;  exec "$LIB/clean.sh" "$@" ;;
+  frames)     need ffmpeg;  exec "$LIB/frames.sh" "$@" ;;
+  crop)       need magick "ImageMagick 7"; exec "$LIB/crop.sh" "$@" ;;
+  transcribe) need uv "https://docs.astral.sh/uv/"; exec uv run --script "$LIB/transcribe.py" "$@" ;;
+  ramp)       need uv "https://docs.astral.sh/uv/"; exec uv run --script "$LIB/ramp.py" "$@" ;;
+  doctor)
+    rc=0
+    for t in ffmpeg ffprobe magick uv; do
+      if command -v "$t" >/dev/null 2>&1; then
+        printf '  ok      %-8s %s\n' "$t" "$(command -v "$t")"
+      else
+        printf '  MISSING %-8s\n' "$t"; rc=1
+      fi
+    done
+    [ $rc -eq 0 ] && echo "all good." || echo $'\nffmpeg/ImageMagick come from your package manager; uv from https://docs.astral.sh/uv/'
+    exit $rc ;;
+  -h|--help|help|"") usage ;;
+  *) echo "lectern: unknown command '$cmd'" >&2; echo >&2; usage >&2; exit 2 ;;
+esac

@@ -1,0 +1,12 @@
+{
+  "name": "lectern",
+  "description": "Turn a lecture recording into a written summary: probe the audio, transcribe it, read the board off sampled frames, and write it up. Also repairs broken lecture audio and speed-ramps recordings.",
+  "version": "0.1.0",
+  "author": {
+    "name": "MendedBiscuit"
+  },
+  "homepage": "https://github.com/MendedBiscuit/lectern",
+  "repository": "https://github.com/MendedBiscuit/lectern",
+  "license": "MIT",
+  "keywords": ["lecture", "transcription", "whisper", "ffmpeg", "notes", "latex", "study"]
+}

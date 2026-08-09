@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "lectern",
+  "description": "lectern — lecture recordings to written summaries",
+  "owner": {
+    "name": "MendedBiscuit"
+  },
+  "plugins": [
+    {
+      "name": "lectern",
+      "source": "./",
+      "description": "Turn a lecture recording into a written summary: probe the audio, transcribe it, read the board off sampled frames, and write it up.",
+      "category": "productivity"
+    }
+  ]
+}
