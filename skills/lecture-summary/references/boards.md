@@ -52,9 +52,9 @@ Where a board and the transcript disagree, the board is correct. The transcript
 is still useful as a check on your own reading: if you read a symbol as `p` and
 the lecturer is clearly saying "q" at that timestamp, look again.
 
-Watch for ASR-inserted content that is locally plausible. One transcript gave a
-list of primes as "5, 7, 17, 19, 29, 39, 31, 43" — an interpolated number among
-correct ones. Verify any data that comes from the transcript rather than prose.
+Watch for ASR-inserted content that is locally plausible: an extra item in a
+list, a digit that fits the surrounding pattern. Verify any data taken from the
+transcript rather than prose.
 
 ## Slides and document cameras
 

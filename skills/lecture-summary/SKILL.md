@@ -6,17 +6,15 @@ description: Turn a recorded lecture into a written summary — transcribe the a
 # Lecture summary
 
 A recording carries its content in two channels. The audio has the narrative:
-asides, emphasis, what a theorem was for, admin, what was flagged as examinable.
+asides, emphasis, what a result was for, admin, what was flagged as examinable.
 The picture has the content: every symbol as written.
 
-Speech recognition is unreliable on technical vocabulary and fails fluently.
-Observed in one number theory lecture: *abelian* → "a billion", *Fermat* →
-"Vermont", *cyclic* → "sickie", *primitive root* → "permanent group", *Bézout* →
-"bazou", and a `39` inserted into a list of primes. Each is a plausible English
-sentence, and none is recoverable from the transcript.
+Speech recognition is unreliable on technical vocabulary and fails fluently —
+misheard terms come back as plausible English words, and numbers can be
+interpolated. None of it is recoverable from the transcript alone.
 
-So: take the mathematics from the frames, the narrative from the audio. Do not
-transcribe formulas or names from audio.
+So: take the technical content from the frames, the narrative from the audio.
+Do not transcribe formulas or names from audio.
 
 ## The tool
 
@@ -80,8 +78,7 @@ take the symbols from there. Where board and transcript disagree, the board is
 correct.
 
 Use the transcript for what the lecturer emphasised, called difficult, said was
-examinable, deferred to next lecture, or set as an exercise. That material is
-what makes a summary preferable to re-watching.
+examinable, deferred, or set as an exercise.
 
 Start the document from the template:
 
@@ -100,8 +97,8 @@ Both directions, before reporting completion.
   it may be correct and still not be what was taught.
 - **Lecture to write-up.** Re-read the transcript against your section list.
   Look for the sentences explaining why one result leads to the next; these
-  compress out without leaving a visible hole. In one lecture the omission was a
-  30-second contrast between two isomorphisms, which motivated the second half.
+  compress out without leaving a visible hole, and are often what motivates
+  everything after them.
 
 Then state what could not be recovered. A projected table blown out to white is
 not in the recording; say so and point at the posted notes rather than

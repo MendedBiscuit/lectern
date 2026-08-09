@@ -5,8 +5,7 @@
 # ///
 """lectern ramp — play a lecture at two speeds.
 
-1.2x while the lecturer is writing, 2x otherwise. One document-camera lecture
-came out at 37 minutes from 55.
+1.2x while the lecturer is writing, 2x otherwise.
 
 HOW IT DECIDES
   Not by counting dark pixels. On a document camera pages get swapped, so the
@@ -124,8 +123,8 @@ def cmd_detect(a) -> int:
     print("new-ink %  p25/50/75/90/95/99: " + " ".join(f"{v:.3f}" for v in pct), file=sys.stderr)
     print(f"wrote {wd}/newink.npy", file=sys.stderr)
     print("\nPick --enter / --exit for `plan` from that distribution: enter around\n"
-          "p75-p90, exit around p50. The defaults (0.70 / 0.35) came from one\n"
-          "document-camera lecture and are not universal.", file=sys.stderr)
+          "p75-p90, exit around p50. The defaults (0.70 / 0.35) are not universal.",
+          file=sys.stderr)
     return 0
 
 

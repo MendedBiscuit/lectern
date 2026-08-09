@@ -16,8 +16,8 @@ side (L-R)  mean  -26.6    peak  -1.8
 ```
 
 `ffmpeg -ac 1` averages the channels, producing the mid. Whisper's VAD scores
-that as non-speech and discards it, returning only the copyright bumper at the
-head of the file, which is genuinely mono. No error is raised.
+that as non-speech and discards it, returning only whatever leader or bumper is
+genuinely mono. No error is raised.
 
 It also affects listening: hollow, no centre image, and nearly inaudible on a
 mono speaker.
@@ -56,8 +56,7 @@ subtracting adds the signal coherently while the noise adds in quadrature.
 
 ### It varies per file
 
-Two lectures from the same subject, a day apart, same theatre: one inverted, one
-not. Check every file.
+The same rig can produce affected and unaffected recordings. Check every file.
 
 ## Cleaning up for listening
 

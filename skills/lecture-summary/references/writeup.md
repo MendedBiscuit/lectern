@@ -31,9 +31,8 @@ point.
 make should either be left out or labelled as an editorial note. The reader is
 comparing this against their own notes and their exam.
 
-**Keep what the lecturer said about a result.** A description like "magical and
-infuriating" conveys more about a non-constructive existence proof than a
-paragraph of hedging.
+**Keep what the lecturer said about a result.** A one-line characterisation from
+the lecture usually conveys more than a paragraph of hedging.
 
 **Record loose ends as loose ends.** "He flagged a reason coming soon and did
 not give it" is the hook the next summary attaches to.

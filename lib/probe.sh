@@ -3,9 +3,9 @@
 #
 # The check that matters is whether the stereo pair is phase-inverted. If it is,
 # a mono downmix (ffmpeg -ac 1 averages L and R) cancels the audio to near
-# silence, whisper's VAD discards the file, and the transcript comes back as a
-# few lines of copyright bumper. Both channels measure normally on their own, so
-# a level check will not catch it: compare mid (L+R) against side (L-R).
+# silence, whisper's VAD discards the file, and the transcript comes back empty.
+# Both channels measure normally on their own, so a level check will not catch
+# it: compare mid (L+R) against side (L-R).
 set -euo pipefail
 . "${LIB:-$(dirname "$0")}/common.sh"
 

@@ -15,11 +15,10 @@ Two limits on the output:
     poor one. A few lines out of a one hour lecture means the problem is
     upstream: run `lectern probe` on the source.
 
-  * ASR is unreliable on technical vocabulary and fails fluently. Observed in
-    one number theory lecture: "abelian" -> "a billion", "Fermat" -> "Vermont",
-    "cyclic" -> "sickie", "primitive root" -> "permanent group", "Bezout" ->
-    "bazou". Names and symbols are worst. Use the transcript for narrative,
-    asides, admin and emphasis; take the mathematics from the frames.
+  * ASR is unreliable on technical vocabulary and fails fluently: misheard
+    terms come back as plausible English words, and list items can be
+    interpolated. Proper nouns and notation are worst. Use the transcript for
+    narrative, asides, admin and emphasis; take the content from the frames.
 """
 
 import argparse
